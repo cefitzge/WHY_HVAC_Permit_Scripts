@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Angola"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-79.03943, 42.64775],
+          [-79.01983, 42.64761],
+          [-79.01978, 42.62806],
+          [-79.03947, 42.62794],
+          [-79.03943, 42.64775]
+        ]]
+      }
+    }
+  ]
+}

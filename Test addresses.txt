@@ -1,0 +1,60 @@
+Test addresses
+
+Akron
+27 John St, Akron, NY 14001
+Angola
+91 S Main St, Angola, NY 14006
+Clarence
+4796 Ransom Rd, Clarence, NY 14031
+Depew
+751 Sherwood Ct, Depew, NY 14043
+Derby
+1415 Sturgeon Point Rd, Derby, NY 14047
+East Aurora
+261 Prospect Ave, East Aurora, NY 14052
+Elma
+1771 Bowen Rd, Elma, NY 14059
+Grand Island
+2238 Center Ct S, Grand Island, NY 14072
+Hamburg
+58 Prospect Ave, Hamburg, NY 14075
+Kenmore
+264 Washington Ave, Tonawanda, NY 14217
+Lackawanna
+65 Odell St, Lackawanna, NY 14218
+Lancaster
+58 Garfield St, Lancaster, NY 14086
+Lewiston
+710 Oneida St, Lewiston, NY 14092
+Lockport(city) smaller
+141 Davison Rd, Lockport, NY 14094
+Lockport (town) bigger
+6763 Old Beattie Rd, Lockport, NY 14094
+Niagara Falls (city)
+2202 Niagara Ave, Niagara Falls, NY 14305
+Niagara Falls (town) smaller
+6914 Joanne Cir N, Niagara Falls, NY 14304
+North Tonawanda
+17 Market St, North Tonawanda, NY 14120
+Orchard Park (town)
+6374 Milestrip Rd, Orchard Park, NY 14127
+Orchard Park (village) smaller
+112 Highland Ave, Orchard Park, NY 14127
+Pendleton
+5680 Tonawanda Creek Rd, Lockport, NY 14094
+Sanborn
+5810 Griffin St, Sanborn, NY 14132
+Sloan
+300 Lackawanna Ave, Buffalo, NY 14212
+Tonawanda (city)
+313 Niagara St, Tonawanda, NY 14150
+Tonawanda (town)
+24 Paige Ave, Tonawanda, NY 14223
+West Seneca
+124 Rose Ave, West Seneca, NY 14224
+Wheatfield
+6884 Ward Rd, Niagara Falls, NY 14304
+Williamsville
+69 N Cayuga Rd, Williamsville, NY 14221
+Youngstown
+421 Lockport St, Youngstown, NY 14174

@@ -1,0 +1,36 @@
+Township,Furnace_Cost,AC_Replace_Cost,AC_New_Cost,Boiler_Cost,Special_Calc,Separate,Cover_sheet
+Akron,,,,,No,No
+Angola,,,,,No,No
+Amherst town,100,50,100,100,Yes,Yes,No
+Buffalo city,154.38,154.38,154.38,154.38,No,No,No
+Cheektowaga town,50,,50,50,Yes,No,Yes
+Clarence town,100,100,100,100,No,No,Yes
+Depew,,,,,No,No
+Derby,,,,,No,No
+Aurora town,,,,,No,No
+Elma town,,,,,No,No
+Evans town,,,,,No,No
+Grand Island town,,,,,No,No
+Hamburg town,,,,,No,No
+Kenmore,,,,,No,No
+Lackawanna city,,,,,No,No
+Lancaster town,,,,,No,No
+Lewiston town,,,,,No,No
+Lockport city,30,30,30,30,No,No,Yes
+Lockport town,,,,,No,No
+Newstead town,,,,,No,No
+Niagara Falls city,,,,,Yes,Yes,Yes
+Niagara town,,,,,Yes,Yes,Yes
+North Tonawanda city,,,,,Yes,Yes,Yes
+Orchard Park town,75,75,75,75,No,Yes,Yes
+Orchard park village,,,,,No,No
+Pendleton,75,75,75,75,Yes,No,Yes
+Porter town,,,,,No,No
+Sanborn,,,,,No,No
+Sloan,25,25,25,25,No,No,Yes
+Tonawanda city,,,,,No,No
+Tonawanda town,,,,,No,No
+West Seneca town,,,,,No,No
+Wheatfield town,,,,,No,No
+Williamsville,60,60,60,60,No,Yes,Yes
+Youngstown,,,,,No,No
