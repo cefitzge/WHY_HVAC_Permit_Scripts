@@ -1,12 +1,12 @@
 import os
 import io
-import subprocess
 from pdfrw import PdfReader, PdfWriter, PageMerge
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 
 TEMPLATE = "Permit cover sheet.pdf"
 INPUT = "Customer_data.txt"
+OUTPUT_DIR = r"\\RPIDCROOT\RedirectedFolders\cef\Desktop"
 
 # --- Read Customer Data ---
 with open(INPUT, "r") as f:
@@ -17,7 +17,6 @@ full_address = lines[1]
 address_parts = [part.strip() for part in full_address.split(",")]
 
 if len(address_parts) >= 3:
-    # Example: ["17 Market St", "North Tonawanda", "NY 14120"]
     street_address = address_parts[0]
     city_state_zip = f"{address_parts[1]}, {address_parts[2]}"
 elif len(address_parts) == 2:
@@ -52,7 +51,7 @@ data = {
     "Permit Fee": permit_fee,
 }
 
-# --- Load template to get page size ---
+# --- Load template ---
 template_pdf = PdfReader(TEMPLATE)
 page0 = template_pdf.pages[0]
 try:
@@ -65,20 +64,18 @@ try:
 except Exception:
     page_width_pts, page_height_pts = letter
 
-
 def to_points_top_origin(x_in_inches, y_in_inches):
     x_pts = x_in_inches * 72.0
     y_pts_from_top = y_in_inches * 72.0
     y_pts = page_height_pts - y_pts_from_top
     return x_pts, y_pts
 
-
-# --- Create Overlay PDF ---
+# --- Create Overlay ---
 packet = io.BytesIO()
 c = canvas.Canvas(packet, pagesize=(page_width_pts, page_height_pts))
 c.setFont("Helvetica", 10)
 
-# Draw fields using your measured coordinates
+# Draw fields
 c.drawString(*to_points_top_origin(2.24, 1.71), data["Customer Name"])
 c.drawString(*to_points_top_origin(1.69, 2.14), data["Address 1"])
 c.drawString(*to_points_top_origin(1.69, 2.45), data["Address 2"])
@@ -96,7 +93,7 @@ c.save()
 packet.seek(0)
 overlay_pdf = PdfReader(packet)
 
-# --- Merge overlay onto template ---
+# --- Merge overlay ---
 for page, overlay in zip(template_pdf.pages, overlay_pdf.pages):
     merger = PageMerge(page)
     merger.add(overlay).render()
@@ -104,26 +101,29 @@ for page, overlay in zip(template_pdf.pages, overlay_pdf.pages):
 # --- Output File ---
 customer_last_name = lines[0].split()[-1]
 output_filename = f"{customer_last_name} cover sheet.pdf"
-PdfWriter().write(output_filename, template_pdf)
+output_path = os.path.join(OUTPUT_DIR, output_filename)
 
-print(f"✅ PDF created and saved as '{output_filename}'")
+PdfWriter().write(output_path, template_pdf)
+print(f"✅ PDF created and saved as '{output_path}'")
 
 # --- Ask to print ---
 print_now = input("Do you want to print this PDF? (y/n): ").strip().lower()
 if print_now == "y":
-    os.startfile(output_filename, "print")
-    print("📄 Sent to printer.")
+    try:
+        os.startfile(output_path, "print")  # Prints silently using default PDF app
+        print("📄 Sent to printer.")
+    except Exception as e:
+        print(f"⚠️ Could not print file: {e}")
 else:
-    print("❌ Printing skipped. You can review or fix the PDF.")
+    print("❌ Printing skipped.")
 
-# --- Ask to delete the PDF ---
-delete_pdf = input(f"Do you want to delete '{output_filename}'? (y/n): ").strip().lower()
+# --- Ask to delete ---
+delete_pdf = input(f"Do you want to delete '{output_filename}' from Desktop? (y/n): ").strip().lower()
 if delete_pdf == "y":
     try:
-        os.remove(output_filename)
-        print(f"🗑️ '{output_filename}' deleted.")
+        os.remove(output_path)
+        print(f"🗑️ '{output_filename}' deleted from Desktop.")
     except Exception as e:
         print(f"⚠️ Could not delete file: {e}")
 else:
-    print(f"✅ '{output_filename}' kept.")
-    print(f"✅ '{output_filename}' kept.")
+    print(f"✅ '{output_filename}' kept on Desktop.")
