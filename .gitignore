@@ -1,0 +1,6 @@
+﻿Customer_data.txt
+__pycache__/
+*.pyc
+.env
+.vscode/
+*.log
