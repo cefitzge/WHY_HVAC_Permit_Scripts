@@ -361,3 +361,5 @@ if __name__ == "__main__":
         print("inspection: will send info to Jeff L")
     if township.strip().lower() in ["niagara falls city"]:
         print("inspection: will send pics")
+    if township.strip().lower() in ["cheektowaga town"]:
+        print("Permit is for heating elements and brand new ACs only")       
