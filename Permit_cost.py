@@ -54,7 +54,7 @@ def get_census_coordinates(address):
         response = requests.get(url, params=params, timeout=10)
         data = response.json()
     except Exception as e:
-        print("⚠️ Census geocode request failed:", e)
+        print(" Census geocode request failed:", e)
         return None, None
 
     try:
@@ -73,7 +73,7 @@ def get_census_municipality(address):
         geo_response = requests.get(geo_url, params=geo_params, timeout=10)
         geo_data = geo_response.json()
     except Exception as e:
-        print("⚠️ Census geography request failed:", e)
+        print(" Census geography request failed:", e)
         return None
 
     try:
@@ -93,7 +93,7 @@ def load_polygons(polygon_map):
     loaded = {}
     for name, path in polygon_map.items():
         if not os.path.isfile(path):
-            print(f"⚠️ Polygon file not found for {name}: {path}  (skipping)")
+            print(f" Polygon file not found for {name}: {path}  (skipping)")
             continue
         try:
             with open(path, "r", encoding="utf-8") as f:
@@ -101,7 +101,7 @@ def load_polygons(polygon_map):
             geom = shape(gj["features"][0]["geometry"])
             loaded[name] = geom
         except Exception as e:
-            print(f"⚠️ Failed to load polygon for {name} ({path}): {e}")
+            print(f" Failed to load polygon for {name} ({path}): {e}")
     return loaded
 
 # -------------------------------
@@ -153,7 +153,7 @@ def check_permit(township, work_type, permit_data):
     # Fallback to regular CSV logic
     data = permit_data.get(key)
     if not data:
-        print(f"❌ Township '{township}' not found in permit list.")
+        print(f" Township '{township}' not found in permit list.")
         return
 
     permit_required = False
@@ -288,7 +288,7 @@ if __name__ == "__main__":
     # Extract address from customer file
     address = extract_address_from_file(CUSTOMER_FILE)
     if not address:
-        print("❌ Could not find an address in the customer file.")
+        print("Could not find an address in the customer file.")
         raise SystemExit(1)
 
     # Geocode to lon/lat
@@ -296,7 +296,7 @@ if __name__ == "__main__":
     township = None
 
     if lon is None or lat is None:
-        print("⚠️ Census geocode failed for address:", address)
+        print(" Census geocode failed for address:", address)
         township = input("Enter the township manually: ").strip()
         print(f"Township entered manually: {township}")
     else:
@@ -309,7 +309,7 @@ if __name__ == "__main__":
                     matched_polygon_name = name
                     break
             except Exception as e:
-                print(f"⚠️ Error testing polygon {name}: {e}")
+                print(f" Error testing polygon {name}: {e}")
 
         if matched_polygon_name:
             township = matched_polygon_name
@@ -335,10 +335,10 @@ if __name__ == "__main__":
                     township = geographies['Places'][0]['NAME']
                     print(f"Township detected from Census (Place): {township}")
                 else:
-                    township = input("⚠️ Could not determine township from address. Enter the township manually: ").strip()
+                    township = input(" Could not determine township from address. Enter the township manually: ").strip()
                     print(f"Township entered manually: {township}")
             except Exception as e:
-                print("⚠️ Census geography request failed:", e)
+                print(" Census geography request failed:", e)
                 township = input("Enter the township manually: ").strip()
                 print(f"Township entered manually: {township}")
 
@@ -356,7 +356,7 @@ if __name__ == "__main__":
         check_permit(township, work_type, permit_data)
     
     if township.strip().lower() in ["clarence", "orchard park town"]:
-        print(" ⚠️  print signed estimate invoice ⚠️ ")
+        print(" print signed estimate invoice ")
     if township.strip().lower() in ["north tonawanda city"]:
         print("inspection: will send info to Jeff L")
     if township.strip().lower() in ["niagara falls city"]:
