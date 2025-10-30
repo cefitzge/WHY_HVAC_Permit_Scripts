@@ -357,3 +357,7 @@ if __name__ == "__main__":
     
     if township.strip().lower() in ["clarence", "orchard park town"]:
         print(" ⚠️  print signed estimate invoice ⚠️ ")
+    if township.strip().lower() in ["north tonawanda city"]:
+        print("inspection: will send info to Jeff L")
+    if township.strip().lower() in ["niagara falls city"]:
+        print("inspection: will send pics")
