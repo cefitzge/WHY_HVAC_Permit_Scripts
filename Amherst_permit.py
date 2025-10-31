@@ -105,17 +105,6 @@ output_filename = os.path.join(OUTPUT_DIR, f"{customer_last_name} permit app.pdf
 PdfWriter().write(output_filename, template_pdf)
 print(f"✅ PDF created and saved as '{output_filename}'")
 
-# --- Ask to print ---
-print_now = input("Do you want to print this PDF? (y/n): ").strip().lower()
-if print_now == "y":
-    try:
-        os.startfile(output_filename, "print")
-        print("📄 Sent to printer.")
-    except Exception as e:
-        print(f" Printing failed: {e}")
-else:
-    print(" Printing skipped. You can review or fix the PDF.")
-
 # --- Ask to delete the PDF ---
 delete_pdf = input(f"Do you want to delete '{output_filename}'? (y/n): ").strip().lower()
 if delete_pdf == "y":
