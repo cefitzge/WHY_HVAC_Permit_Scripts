@@ -100,7 +100,7 @@ def check_permit(township, work_type, permit_data):
     key = township.strip().lower()
     data = permit_data.get(key)
     if not data:
-        print(f"❌ Township '{township}' not found in permit list.")
+        print(f" Township '{township}' not found in permit list.")
         return
 
     permit_required = False
@@ -167,7 +167,7 @@ if __name__ == "__main__":
                 township = get_census_municipality(address)
 
         if not township:
-            township = input("⚠️ Could not determine township. Enter manually: ").strip()
+            township = input(" Could not determine township. Enter manually: ").strip()
 
         work_type = get_work_type()
         check_permit(township, work_type, permit_data)
