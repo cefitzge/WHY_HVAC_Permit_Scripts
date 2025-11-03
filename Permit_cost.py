@@ -355,7 +355,7 @@ if __name__ == "__main__":
         # Use standard permit logic
         check_permit(township, work_type, permit_data)
     
-    if township.strip().lower() in ["clarence", "orchard park town"]:
+    if township.strip().lower() in ["clarence town", "orchard park town"]:
         print(" print signed estimate invoice ")
     if township.strip().lower() in ["north tonawanda city"]:
         print("inspection: will send info to Jeff L")
