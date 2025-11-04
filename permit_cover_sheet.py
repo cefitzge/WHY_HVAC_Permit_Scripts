@@ -115,15 +115,15 @@ if print_now == "y":
     except Exception as e:
         print(f"⚠️ Could not print file: {e}")
 else:
-    print("❌ Printing skipped.")
+    print(" Printing skipped.")
 
 # --- Ask to delete ---
 delete_pdf = input(f"Do you want to delete '{output_filename}' from Desktop? (y/n): ").strip().lower()
 if delete_pdf == "y":
     try:
         os.remove(output_path)
-        print(f"🗑️ '{output_filename}' deleted from Desktop.")
+        print(f" '{output_filename}' deleted from Desktop.")
     except Exception as e:
         print(f"⚠️ Could not delete file: {e}")
 else:
-    print(f"✅ '{output_filename}' kept on Desktop.")
+    print(f" '{output_filename}' kept on Desktop.")
