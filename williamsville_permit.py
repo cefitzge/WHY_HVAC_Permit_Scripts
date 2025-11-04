@@ -9,7 +9,7 @@ import io
 
 TEMPLATE = "Williamsville HVAC permit.pdf"
 INPUT = "Customer_data.txt"
-SIGNATURE = "Dollendorf_sig.png"
+SIGNATURE = "signature.png"
 
 # --- Read Customer Data ---
 with open(INPUT, "r") as f:

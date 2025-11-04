@@ -10,7 +10,7 @@ from reportlab.lib.utils import ImageReader
 # --- File Locations ---
 TEMPLATE = "Cheektowaga permit.pdf"
 INPUT = "Customer_data.txt"
-SIGNATURE = "Dollendorf_sig.png"
+SIGNATURE = "signature.png"
 OUTPUT_DIR = r"\\RPIDCROOT\RedirectedFolders\cef\Desktop"
 
 # --- Read Customer Data ---

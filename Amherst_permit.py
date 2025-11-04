@@ -7,7 +7,7 @@ import io
 
 TEMPLATE = "Amherst HVAC permit.pdf"
 INPUT = "Customer_data.txt"
-SIGNATURE = "Dollendorf_sig.png"
+SIGNATURE = "signature.png"
 OUTPUT_DIR = r"\\RPIDCROOT\RedirectedFolders\cef\Desktop"
 
 # --- Read Customer Data ---
