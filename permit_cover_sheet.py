@@ -104,16 +104,16 @@ output_filename = f"{customer_last_name} cover sheet.pdf"
 output_path = os.path.join(OUTPUT_DIR, output_filename)
 
 PdfWriter().write(output_path, template_pdf)
-print(f"✅ PDF created and saved as '{output_path}'")
+print(f" PDF created and saved as '{output_path}'")
 
 # --- Ask to print ---
 print_now = input("Do you want to print this PDF? (y/n): ").strip().lower()
 if print_now == "y":
     try:
         os.startfile(output_path, "print")  # Prints silently using default PDF app
-        print("📄 Sent to printer.")
+        print(" Sent to printer.")
     except Exception as e:
-        print(f"⚠️ Could not print file: {e}")
+        print(f" Could not print file: {e}")
 else:
     print(" Printing skipped.")
 
@@ -124,6 +124,6 @@ if delete_pdf == "y":
         os.remove(output_path)
         print(f" '{output_filename}' deleted from Desktop.")
     except Exception as e:
-        print(f"⚠️ Could not delete file: {e}")
+        print(f" Could not delete file: {e}")
 else:
     print(f" '{output_filename}' kept on Desktop.")
