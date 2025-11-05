@@ -120,26 +120,26 @@ output_filename = f"{customer_last_name} Orchard Park permit.pdf"
 output_path = os.path.join(OUTPUT_DIR, output_filename)
 PdfWriter().write(output_path, template_pdf)
 
-print(f"✅ PDF created and saved as '{output_path}'")
+print(f" PDF created and saved as '{output_path}'")
 
 # --- Ask to print ---
 print_now = input("Do you want to print this PDF? (y/n): ").strip().lower()
 if print_now == "y":
     try:
         os.startfile(output_path, "print")
-        print("📄 Sent to printer via default PDF handler.")
+        print(" Sent to printer via default PDF handler.")
     except Exception as e:
-        print(f"⚠️ Could not print: {e}")
+        print(f" Could not print: {e}")
 else:
-    print("❌ Printing skipped.")
+    print(" Printing skipped.")
 
 # --- Ask to delete ---
 delete_pdf = input(f"Do you want to delete '{output_filename}' from Desktop? (y/n): ").strip().lower()
 if delete_pdf == "y":
     try:
         os.remove(output_path)
-        print(f"🗑️ '{output_filename}' deleted from Desktop.")
+        print(f" '{output_filename}' deleted from Desktop.")
     except Exception as e:
-        print(f"⚠️ Could not delete file: {e}")
+        print(f" Could not delete file: {e}")
 else:
-    print(f"✅ '{output_filename}' kept on Desktop.")
+    print(f" '{output_filename}' kept on Desktop.")
